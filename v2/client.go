@@ -18,6 +18,7 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
+	"github.com/fairyhunter13/reflecthelper/v5"
 	"io"
 	"log"
 	"mime/multipart"
@@ -63,7 +64,7 @@ type service struct {
 // NewAPIClient creates a new API client. Requires a userAgent string describing your application.
 // optionally a custom http.Client to allow for advanced features such as caching.
 func NewAPIClient(cfg *Configuration) *APIClient {
-	if cfg.HTTPClient == nil {
+	if reflecthelper.IsNil(cfg.HTTPClient) {
 		cfg.HTTPClient = http.DefaultClient
 	}
 
@@ -369,8 +370,12 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 		return nil
 	}
 	if jsonCheck.MatchString(contentType) {
-		if actualObj, ok := v.(interface{ GetActualInstance() interface{} }); ok { // oneOf, anyOf schemas
-			if unmarshalObj, ok := actualObj.(interface{ UnmarshalJSON([]byte) error }); ok { // make sure it has UnmarshalJSON defined
+		if actualObj, ok := v.(interface {
+			GetActualInstance() interface{}
+		}); ok { // oneOf, anyOf schemas
+			if unmarshalObj, ok := actualObj.(interface {
+				UnmarshalJSON([]byte) error
+			}); ok { // make sure it has UnmarshalJSON defined
 				if err = unmarshalObj.UnmarshalJSON(b); err != nil {
 					return err
 				}

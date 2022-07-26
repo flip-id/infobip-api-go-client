@@ -14,7 +14,6 @@ package infobip
 import (
 	"context"
 	"fmt"
-	"net/http"
 	"strings"
 )
 
@@ -85,7 +84,7 @@ type Configuration struct {
 	Debug            bool              `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
-	HTTPClient       *http.Client
+	HTTPClient       Doer
 }
 
 // NewConfiguration returns a new Configuration object
