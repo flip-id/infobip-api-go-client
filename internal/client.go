@@ -4,13 +4,12 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	infobip "infobip-api-go-client/pkg"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-
-	"github.com/infobip/infobip-api-go-client/pkg"
 )
 
 type Querier interface {

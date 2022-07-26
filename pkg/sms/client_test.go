@@ -1,17 +1,17 @@
 package sms
 
-//This is a generated file and is not intended for modification!
+// This is a generated file and is not intended for modification!
 
 import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
-	infobip "github.com/infobip/infobip-api-go-client/pkg"
+	infobip "infobip-api-go-client/pkg"
 )
 
 var (
-	//reference imported packages just in case auto-generated code doesn't
+	// reference imported packages just in case auto-generated code doesn't
 	_ = http.StatusOK
 	_ = httptest.DefaultRemoteAddr
 	_ = testing.RunTests
