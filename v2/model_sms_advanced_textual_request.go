@@ -187,6 +187,19 @@ func (o SmsAdvancedTextualRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
+// Default returns the default value for the type.
+func (o *SmsAdvancedTextualRequest) Default() *SmsAdvancedTextualRequest {
+	if o.Messages == nil {
+		return o
+	}
+
+	for idx, msg := range *o.Messages {
+		(*o.Messages)[idx] = *msg.Default()
+	}
+
+	return o
+}
+
 type NullableSmsAdvancedTextualRequest struct {
 	value *SmsAdvancedTextualRequest
 	isSet bool

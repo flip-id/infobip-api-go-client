@@ -26,3 +26,6 @@ _testmain.go
 # Editor Configs
 .vscode
 .idea
+
+# Environment Variables
+.env

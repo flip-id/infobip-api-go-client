@@ -15,6 +15,7 @@ Built on top of [OpenAPI Specification](https://swagger.io/specification/), powe
 * [General Info](#general-info)
 * [Installation](#installation)
 * [Quickstart](#quickstart)
+* [Integration Testing](#integration-testing)
 * [Ask for help](#ask-for-help)
 
 ## Documentation
@@ -232,6 +233,19 @@ Example of webhook implementation:
 ```
 #### Two-Factor Authentication (2FA)
 For 2FA quick start guide please check [these examples](two-factor-authentication.md).
+
+## Integration Testing
+
+To run the integration tests, we need to do the following:
+1. Make a new copy of `.env.example` to `.env` by running this command below:
+```bash
+cat .env.example > .env
+```
+2. Fill the new .env with the parameter that we already prepared.
+3. Run the tests by running this command:
+```bash
+go test -v -race -tags=integration -covermode=atomic ./...
+```
 
 ## Ask for help
 

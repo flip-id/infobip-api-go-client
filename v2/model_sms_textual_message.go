@@ -557,6 +557,19 @@ func (o SmsTextualMessage) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
+// Default returns the default value for the struct.
+func (o *SmsTextualMessage) Default() *SmsTextualMessage {
+	if o.Destinations == nil {
+		return o
+	}
+
+	for idx, dest := range *o.Destinations {
+		(*o.Destinations)[idx] = *dest.Default()
+	}
+
+	return o
+}
+
 type NullableSmsTextualMessage struct {
 	value *SmsTextualMessage
 	isSet bool

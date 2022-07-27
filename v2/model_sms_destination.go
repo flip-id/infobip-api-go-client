@@ -13,6 +13,7 @@ package infobip
 
 import (
 	"encoding/json"
+	"github.com/fairyhunter13/phone"
 )
 
 // SmsDestination struct for SmsDestination
@@ -106,6 +107,12 @@ func (o SmsDestination) MarshalJSON() ([]byte, error) {
 		toSerialize["to"] = o.To
 	}
 	return json.Marshal(toSerialize)
+}
+
+// Default returns the default value for the type.
+func (o *SmsDestination) Default() *SmsDestination {
+	o.To = phone.NormalizeID(o.To, 0)
+	return o
 }
 
 type NullableSmsDestination struct {
