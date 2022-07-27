@@ -3,11 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
+	infobip "infobip-api-go-client/pkg"
 	"net/http"
 	"time"
 
-	"github.com/infobip/infobip-api-go-client/pkg"
-	"github.com/infobip/infobip-api-go-client/pkg/sms"
+	"infobip-api-go-client/pkg/sms"
 )
 
 func main() {
@@ -17,9 +17,9 @@ func main() {
 	flag.Parse()
 
 	client := sms.Client{
-		BaseURL:    "https://api.infobip.com", //optional parameter
+		BaseURL:    "https://api.infobip.com", // optional parameter
 		Authorizer: infobip.NewBasicCredentials(*username, *password),
-		HTTPClient: http.DefaultClient, //optional
+		HTTPClient: http.DefaultClient, // optional
 	}
 
 	sendSms(client, newMultiMessage(*phone))
@@ -169,8 +169,8 @@ func newMessageWithIndiaDltParameters(destination string) sms.SMSAdvancedTextual
 				Destinations: []sms.Destination{sms.Destination{To: destination}},
 				From:         "InfoSMS",
 				Text:         "SMS with India DLT parameters",
-				Regional: &sms.RegionalOptions {
-					IndiaDLT: &sms.IndiaDLTOptions {
+				Regional: &sms.RegionalOptions{
+					IndiaDLT: &sms.IndiaDLTOptions{
 						ContentTemplateID: "content template id",
 						PrincipalEntityID: "principal entity id",
 					},

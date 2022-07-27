@@ -144,6 +144,14 @@ func (o SmsAdvancedBinaryRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
+// Default returns the default value for the struct.
+func (o *SmsAdvancedBinaryRequest) Default() *SmsAdvancedBinaryRequest {
+	for idx, msg := range o.Messages {
+		o.Messages[idx] = *msg.Default()
+	}
+	return o
+}
+
 type NullableSmsAdvancedBinaryRequest struct {
 	value *SmsAdvancedBinaryRequest
 	isSet bool

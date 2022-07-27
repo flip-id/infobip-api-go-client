@@ -1,15 +1,14 @@
 package sms
 
-//This is a generated file and is not intended for modification!
+// This is a generated file and is not intended for modification!
 
 import (
 	"fmt"
-
-	"github.com/infobip/infobip-api-go-client/internal"
+	api "infobip-api-go-client/internal"
 )
 
 var (
-	//reference imported packages just in case auto-generated code doesn't
+	// reference imported packages just in case auto-generated code doesn't
 	_ = fmt.Sprint
 	_ = api.CallAPI
 )

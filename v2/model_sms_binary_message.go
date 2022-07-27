@@ -483,6 +483,19 @@ func (o SmsBinaryMessage) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
+// Default returns the default value for the struct.
+func (o *SmsBinaryMessage) Default() *SmsBinaryMessage {
+	if o.Destinations == nil {
+		return o
+	}
+
+	for idx, dest := range *o.Destinations {
+		(*o.Destinations)[idx] = *dest.Default()
+	}
+
+	return o
+}
+
 type NullableSmsBinaryMessage struct {
 	value *SmsBinaryMessage
 	isSet bool

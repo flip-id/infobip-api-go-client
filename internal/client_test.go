@@ -3,14 +3,13 @@ package api
 import (
 	"encoding/json"
 	"fmt"
+	infobip "infobip-api-go-client/pkg"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
 	"reflect"
 	"testing"
-
-	"github.com/infobip/infobip-api-go-client/pkg"
 )
 
 type Model struct {

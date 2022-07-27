@@ -613,6 +613,9 @@ func (a *SendSmsApiService) SendBinarySmsMessageExecute(r ApiSendBinarySmsMessag
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
+	if r.smsAdvancedBinaryRequest != nil {
+		r.smsAdvancedBinaryRequest.Default()
+	}
 	localVarPostBody = r.smsAdvancedBinaryRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
@@ -749,6 +752,9 @@ func (a *SendSmsApiService) SendSmsMessageExecute(r ApiSendSmsMessageRequest) (S
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
+	if r.smsAdvancedTextualRequest != nil {
+		r.smsAdvancedTextualRequest.Default()
+	}
 	localVarPostBody = r.smsAdvancedTextualRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
